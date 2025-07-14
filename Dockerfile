@@ -1,5 +1,4 @@
-# Dockerfile
-FROM klakegg/hugo:0.124.1-alpine AS builder
+FROM klakegg/hugo:0.111.3-ext-ubuntu-onbuild AS builder
 COPY . /site
 WORKDIR /site
 RUN hugo
