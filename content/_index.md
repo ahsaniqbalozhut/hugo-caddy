@@ -1,3 +1,5 @@
-# Hello Hugo
+---
+title: "Home"
+---
 
-This site is built with Hugo and served by Caddy.
+Welcome to the Hugo site running on Caddy!
