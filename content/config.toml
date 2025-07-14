@@ -1,0 +1,3 @@
+baseURL = "https://yourdomain.com/"
+languageCode = "en-us"
+title = "Minimal Hugo Site"

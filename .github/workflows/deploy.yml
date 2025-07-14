@@ -1,0 +1,44 @@
+name: Build and Deploy Hugo Site
+
+on:
+  push:
+    branches: [main]
+
+env:
+  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/hugo-caddy:latest
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and Push Image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: ${{ env.IMAGE_NAME }}
+
+    # - name: Deploy via SSH
+    #   if: ${{ secrets.DO_DEPLOY == 'true' }}
+    #   uses: appleboy/ssh-action@v1.0.3
+    #   with:
+    #     host: ${{ secrets.DO_HOST }}
+    #     username: ${{ secrets.DO_USER }}
+    #     key: ${{ secrets.DO_SSH_KEY }}
+    #     script: |
+    #       docker pull ${{ env.IMAGE_NAME }}
+    #       docker stop hugo-caddy 2>/dev/null && docker rm hugo-caddy 2>/dev/null
+    #       docker run -d --name hugo-caddy -p 80:80 \
+    #         -v caddy_data:/data -v caddy_config:/config \
+    #         ${{ env.IMAGE_NAME }}
+          
