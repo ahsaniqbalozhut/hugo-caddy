@@ -1,4 +1,4 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "My Hugo Test"
-theme = "ananke"
+title = "Hugo Site with Hello-Friend"
+theme = "hello-friend"

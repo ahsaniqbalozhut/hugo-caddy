@@ -1,4 +1,4 @@
-FROM klakegg/hugo:0.111.3-ext-ubuntu-onbuild AS builder
+FROM klakegg/hugo:0.101.0-ext-ubuntu AS builder
 COPY . /site
 WORKDIR /site
 RUN hugo
