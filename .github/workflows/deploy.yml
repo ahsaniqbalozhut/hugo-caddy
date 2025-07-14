@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 env:
-  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/hugo-caddy:latest
+  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/hugo-caddy
 
 jobs:
   build-and-deploy:
@@ -21,13 +21,23 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Set Australian Date Tag
+      id: tag
+      run: |
+        TZ="Australia/Sydney"
+        export DATE_TAG=$(date +'%Y-%m-%dT%H-%M-%S-AEST' --date='TZ="Australia/Sydney"')
+        echo "tagged=$DATE_TAG" >> $GITHUB_OUTPUT
+
     - name: Build and Push Image
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
-        tags: ${{ env.IMAGE_NAME }}
+        tags: |
+          ${{ env.IMAGE_NAME }}:latest
+          ${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tagged }}
 
+    # Optional SSH deploy step
     # - name: Deploy via SSH
     #   if: ${{ secrets.DO_DEPLOY == 'true' }}
     #   uses: appleboy/ssh-action@v1.0.3
@@ -36,9 +46,8 @@ jobs:
     #     username: ${{ secrets.DO_USER }}
     #     key: ${{ secrets.DO_SSH_KEY }}
     #     script: |
-    #       docker pull ${{ env.IMAGE_NAME }}
+    #       docker pull ${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tagged }}
     #       docker stop hugo-caddy 2>/dev/null && docker rm hugo-caddy 2>/dev/null
     #       docker run -d --name hugo-caddy -p 80:80 \
     #         -v caddy_data:/data -v caddy_config:/config \
-    #         ${{ env.IMAGE_NAME }}
-          
+    #         ${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tagged }}
