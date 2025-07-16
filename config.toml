@@ -1,4 +1,9 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "Hugo Site with Hello-Friend"
-theme = "hello-friend"
+title = "Supreme Dental documentation"
+theme = "hugo-book"
+
+[params]
+  BookTheme = "light"
+  BookToC = true
+  BookSection = "*"
