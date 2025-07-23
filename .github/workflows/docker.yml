@@ -59,7 +59,8 @@ jobs:
           cd /tmp/
           chmod +x run.sh
           ./run.sh
-        timeout: 60s
-        command_timeout: 30s
+        timeout: 1800s
+        command_timeout: 900s
         debug: true
+
 
