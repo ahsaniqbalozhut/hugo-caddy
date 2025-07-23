@@ -13,53 +13,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - name: Checkout code
-    #   uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    # - name: Set tag
-    #   run: echo "BRANCH_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      - name: Set tag
+        run: echo "BRANCH_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
-    # - name: Log in to Docker Hub
-    #   uses: docker/login-action@v3
-    #   with:
-    #     username: ${{ secrets.DOCKER_USERNAME }}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-    # - name: Build & push image
-    #   uses: docker/build-push-action@v5
-    #   with:
-    #     context: .
-    #     file: mkdocs/Dockerfile
-    #     push: true
-    #     tags: |
-    #       ${{ env.IMAGE_NAME }}:latest
-    #       ${{ env.IMAGE_NAME }}:${{ env.BRANCH_TAG }}
+      - name: Build & push image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: mkdocs/Dockerfile
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ env.BRANCH_TAG }}
 
-    - name: Setup SSH Agent and Add Key
-      run: |
-        mkdir -p ~/.ssh
-        eval "$(ssh-agent -s)"
-        echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-add ~/.ssh/id_rsa
+      - name: Setup SSH Agent and Add Key
+        run: |
+          mkdir -p ~/.ssh
+          eval "$(ssh-agent -s)"
+          echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-add ~/.ssh/id_rsa
 
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ssh.ocooee.com >> ~/.ssh/known_hosts
 
-    - name: Configure SSH
-      run: |
-        mkdir -p ~/.ssh
-        ssh-keyscan -H ssh.ocooee.com >> ~/.ssh/known_hosts
+          cat > ~/.ssh/config <<'EOF'
+Host ocooee-tunnel
+    HostName ssh.ocooee.com
+    User ahsaniqbal
+    IdentityFile ~/.ssh/id_rsa
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+    LogLevel ERROR
+EOF
 
-        cat <<EOF > ~/.ssh/config
-        Host ocooee-tunnel
-            HostName ssh.ocooee.com
-            User ahsaniqbal
-            IdentityFile ~/.ssh/id_rsa
-            StrictHostKeyChecking no
-            UserKnownHostsFile=/dev/null
-            LogLevel ERROR
-        EOF
-        chmod 600 ~/.ssh/config
+          chmod 600 ~/.ssh/config
 
-    - name: Run run.sh on DigitalOcean server via tunnel
-      run: |
-        ssh ocooee-tunnel "cd /tmp && chmod +x run.sh && ./run.sh"
+      - name: Run run.sh on DigitalOcean server via tunnel
+        run: |
+          ssh ocooee-tunnel "cd /tmp && chmod +x run.sh && ./run.sh"
