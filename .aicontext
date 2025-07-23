@@ -1,0 +1,41 @@
+## 🧠 `.aicontext` – Collaboration Context for AI Assistance
+
+```yaml
+project_name: Supreme Dental Clinics Transformation
+
+description: >
+  A consulting and transformation portal for Supreme Dental Clinics, supporting brand unification,
+  digital growth, and operational excellence via a phased, AI-supported approach.
+
+core_objectives:
+  - Conduct discovery and identify key organisational gaps and opportunities
+  - Unify fragmented branding and digital assets under a strategic marketing framework
+  - Implement automation in engagement, social media, and content creation
+  - Improve clinic coordination and patient experience through repeatable systems
+  - Use AI and data-driven tools to optimise and scale with minimal overhead
+
+core_documents:
+  - docs/HOME.md: Discovery & Opportunity Assessment Report
+  - docs/3.BrandingMarketing.md: Strategic Branding & Marketing Framework
+  - docs/3.1BrandConsolidation.md: Brand identity and logo rollout
+  - docs/3.2WebsiteDigital.md: SEO, CMS, and domain unification plan
+  - docs/3.3SocialMedia.md: Content calendar and platform strategy
+  - docs/3.4ContentSEO.md: Blogging and structured content strategy
+  - docs/3.5PatientEngagement.md: Automation and retention tools
+
+phases:
+  - Phase 1: Discovery & Audit (complete)
+  - Phase 2: Strategy & Planning (in progress)
+  - Phase 3: Implementation & Rollout (next)
+  - Phase 4: Measurement & Optimisation (future)
+
+ai_roles:
+  - Generate content calendars, engagement copy, and educational materials
+  - Support SEO audit and keyword planning
+  - Automate documentation, changelogs, and summaries
+  - Recommend reusable templates and patient engagement workflows
+
+collaboration_style: open, iterative, AI-augmented, business-aligned
+```
+
+---

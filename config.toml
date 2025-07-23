@@ -1,9 +1,0 @@
-baseURL = "/"
-languageCode = "en-us"
-title = "Supreme Dental documentation"
-theme = "hugo-book"
-
-[params]
-  BookTheme = "light"
-  BookToC = true
-  BookSection = "*"

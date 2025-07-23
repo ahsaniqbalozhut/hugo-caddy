@@ -1,33 +1,42 @@
 ---
-title: "3.2 Website & Digital Experience"
-date: 2025-07-14
-draft: false
+marp: true
 ---
 
-# 3.2 Website & Digital Experience
-
-## 🎯 Objective  
-To unify all clinic websites under a single domain, creating a cohesive, scalable digital presence that enhances SEO performance, user experience, and brand consistency — while supporting future growth.
 
 ---
 
-## 🔍 The Challenge  
-Currently, each clinic operates on its own domain (e.g., `RingwoodDental.com.au`, `BoxHillDental.com.au`). This fragmented approach results in:
-
-- Diluted SEO authority across multiple domains  
-- Inconsistent branding and messaging  
-- Increased maintenance costs and complexity  
-- Missed opportunities for leveraging collective content and data  
-- Poor local search optimization despite location-based domains  
-
-While individual domains may seem beneficial for local visibility, they actually **hinder long-term growth** by isolating valuable digital assets and preventing the network effect of your entire dental group.
+# 🦷 3.2 Website & Digital Experience  
+## Unified Digital Presence for Growth & Scalability  
 
 ---
 
-## 💡 Why Consolidation Matters  
+## 🎯 Objective
 
-### ✅ Build Systems That Scale with Growth  
-A unified website enables you to build systems that grow **with** your business, not against it. As new clinics open, you simply add new pages — not entirely new websites.
+To unify all clinic websites under a single domain:
+
+> `www.supremedental.com.au`
+
+Our goal is to create a **cohesive, scalable digital presence** that enhances SEO performance, improves user experience, and supports future growth.
+
+---
+
+## 🔍 The Challenge
+
+Currently, each clinic operates on its own domain (e.g., `RingwoodDental.com.au`, `BoxHillDental.com.au`), which results in:
+
+- 🔍 Diluted SEO authority across multiple domains  
+- 🧩 Inconsistent branding and messaging  
+- 💸 Increased maintenance costs and complexity  
+- 📉 Missed opportunities for leveraging collective content and data  
+- 🌍 Poor local search optimization despite location-based domains  
+
+While individual domains may seem beneficial for local visibility, they actually **hinder long-term growth** by isolating valuable digital assets.
+
+---
+
+## 💡 Why Consolidation Matters
+
+### ✅ Build Systems That Scale with Growth
 
 | Feature | With Multiple Domains | With Unified Domain |
 |--------|------------------------|----------------------|
@@ -41,10 +50,11 @@ With a single domain strategy, launching a new clinic becomes a matter of adding
 
 ---
 
-### 🔗 Leverage the Full Power of Your Network  
+### 🔗 Leverage the Full Power of Your Network
+
 Each clinic has unique content: services offered, patient testimonials, FAQs, staff bios, and more. When spread across multiple domains, this content works in isolation.
 
-But when centralized under one domain (`www.supremedental.com.au`), these elements combine to create a **network effect**:
+But when centralized under one domain, these elements combine to create a **network effect**:
 
 - Pages can be cross-linked internally to improve discoverability  
 - Service pages can feature expertise from multiple clinics  
@@ -55,8 +65,11 @@ But when centralized under one domain (`www.supremedental.com.au`), these elemen
 
 ---
 
-### 📈 Debunking the Myth: Local Domains ≠ Better Local SEO  
-Many believe that using location-specific domains improves local search rankings. But **Google does not prioritize domain names over structured URLs and proper schema markup**.
+### 📈 Debunking the Myth: Local Domains ≠ Better Local SEO
+
+Many believe that using location-specific domains improves local search rankings.
+
+But **Google does not prioritize domain names over structured URLs and proper schema markup**.
 
 What really drives local visibility:
 
@@ -110,11 +123,13 @@ We recommend consolidating all existing clinic websites into a single, powerful 
 
 ---
 
-## 📅 Milestone: Launch Unified Site by Q4 2025  
+## 📅 Milestone: Launch Unified Site by Q4 2025
+
 We recommend launching the consolidated website by **Q4 2025**, allowing time for:
-- Preserving local SEO strength during migration  
-- Testing and optimization before peak booking seasons  
-- Aligning with broader brand consolidation efforts  
+
+- ✅ Preserving local SEO strength during migration  
+- 🧪 Testing and optimization before peak booking seasons  
+- 🔄 Aligning with broader brand consolidation efforts  
 
 ---
 
@@ -134,14 +149,7 @@ By consolidating your websites, you’ll achieve:
 
 Here’s how we’ll consolidate your current domains into a single, powerful ecosystem:
 
-```mermaid
-graph LR
-    A[RingwoodDental.com.au] --> Z["https://www.supremedental.com.au"]
-    B[BoxHillDental.com.au] --> Z
-    C[Other Clinic Sites] --> Z
-    
-    style Z fill:#2ecc71,stroke:#fff,color:#fff
-```
+![Migration Plan](images/migration_plan.png)
 
 ---
 
@@ -149,25 +157,8 @@ graph LR
 
 As Supreme Dental Clinics expands, your digital footprint will evolve alongside it:
 
-```mermaid
-graph TD
-    A[Supreme Dental Clinics] --> B["/locations/ringwood"]
-    A --> C["/locations/boxhill"]
-    A --> D["/locations/new-clinic"]
-    A --> E["/services/cosmetic-dentistry"]
-    A --> F["/services/orthodontics"]
-    A --> G["/blog"]
-    A --> H["/patient-resources"]
 
-    style A fill:#3498db,stroke:#fff,color:#fff
-    style B fill:#ecf0f1,stroke:#333
-    style C fill:#ecf0f1,stroke:#333
-    style D fill:#ecf0f1,stroke:#333
-    style E fill:#ecf0f1,stroke:#333
-    style F fill:#ecf0f1,stroke:#333
-    style G fill:#ecf0f1,stroke:#333
-    style H fill:#ecf0f1,stroke:#333
-```
+![A Growing Digital Ecosystem](images/digital_ecosystem.png)
 
 ---
 

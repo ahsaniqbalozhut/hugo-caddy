@@ -1,32 +1,44 @@
 ---
-title: "3.3 Social Media Strategy"
-date: 2025-07-14
-draft: false
+marp: true
 ---
 
-# 3.3 Social Media Strategy
 
-## 🎯 Objective  
+
+---
+
+# 🦷 3.3 Social Media Strategy  
+## A Calendar-Driven Content Engine for Growth & Engagement  
+
+---
+
+## 🎯 Objective
+
 To transform social media into a **planned, strategic marketing channel** by building a **calendar-driven content strategy** that aligns with key **dental, medical, educational, and local community events in Australia**.
 
-This approach will ensure that every post has purpose, relevance, and impact — while leveraging AI-powered tools to automate publishing and maximize reach.
+This approach ensures that every post has **purpose, relevance, and impact** — while leveraging **AI-powered tools** to automate publishing and maximize reach.
 
 ---
 
-## 🔍 The Challenge  
-Currently, social media efforts are inconsistent and uncoordinated. Posts are published sporadically with no clear brand voice or engagement strategy. This results in:
+## 🔍 The Challenge
 
-- Missed opportunities to showcase real patient outcomes  
-- Inconsistent messaging across locations  
-- Underutilized potential for organic growth  
-- Heavy reliance on paid advertising without measurable ROI  
+Currently, social media efforts are **inconsistent and uncoordinated**. Posts are published sporadically with no clear brand voice or engagement strategy.
+
+This results in:
+
+- ❌ Missed opportunities to showcase real patient outcomes  
+- ❌ Inconsistent messaging across locations  
+- ❌ Underutilized potential for organic growth  
+- ❌ Heavy reliance on paid advertising without measurable ROI  
 
 In dentistry, every day brings new moments of transformation, education, and community connection — yet these moments often go unnoticed online.
 
 ---
 
-## 💡 Why This Matters  
-Dental practices have something most brands can only dream of — **real-world impact**. Each consultation, treatment, and patient journey offers authentic storytelling potential that builds trust and drives engagement.
+## 💡 Why This Matters
+
+Dental practices have something most brands can only dream of — **real-world impact**.
+
+Each consultation, treatment, and patient journey offers authentic storytelling potential that builds **trust and drives engagement**.
 
 But to unlock that potential, we need more than just content — we need **strategy**.
 
@@ -46,7 +58,7 @@ We will build a **12-month content calendar** structured around four key pillars
 
 | Pillar | Description |
 |--------|-------------|
-| **Dental & Medical Events** | Align with major Australian health awareness days (e.g., Oral Health Month, World Oral Cancer Day) |
+| **Dental & Medical Events** | Align with major Australian health awareness days |
 | **School Terms & Seasons** | Back-to-school checkups, summer smile prep, winter dental care tips |
 | **Clinic Milestones** | Staff birthdays, clinic anniversaries, patient success stories |
 | **Local Community Events** | Local festivals, charity events, school partnerships |
@@ -68,38 +80,7 @@ This structure ensures your clinics remain **top of mind** throughout the year, 
 
 Here’s how we’ll turn everyday interactions into a powerful digital presence:
 
-```mermaid
-graph TD
-    A[Content Harvesting] --> B[AI Content Processing]
-    B --> C[Publishing Based on Calendar]
-    C --> D[Scheduled Across Platforms]
-    
-    subgraph Harvesting
-        E[Staff Captures Daily Moments] --> A
-        F[Patient Consent & Stories] --> A
-        G[Clinic News & Milestones] --> A
-    end
-    
-    subgraph Processing
-        H[Caption Generation] --> B
-        I[Format Conversion] --> B
-        J[Hashtag & Tag Suggestions] --> B
-    end
-    
-    subgraph Publishing
-        K[Instagram] --> D
-        L[TikTok] --> D
-        M[X Twitter] --> D
-        N[Facebook] --> D
-        O[RedBook] --> D
-        P[YouTube Shorts] --> D
-    end
-    
-    style A fill:#f1c40f,stroke:#333
-    style B fill:#2ecc71,stroke:#fff,color:#fff
-    style C fill:#3498db,stroke:#fff,color:#fff
-    style D fill:#e67e22,stroke:#fff,color:#fff
-```
+![Intelligent Content Flow](images/content_flow.png)
 
 ---
 

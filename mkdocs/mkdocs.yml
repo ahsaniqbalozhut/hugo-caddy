@@ -1,0 +1,15 @@
+site_name: Supreme Dental Docs
+docs_dir: /site/docs
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - content.code.copy
+    - search.highlight
+    - search.suggest
+
+plugins:
+  - search
+  - mermaid2
