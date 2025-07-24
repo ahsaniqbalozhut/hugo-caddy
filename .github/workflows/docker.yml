@@ -35,32 +35,13 @@ jobs:
       #       ${{ env.IMAGE_NAME }}:latest
       #       ${{ env.IMAGE_NAME }}:${{ env.BRANCH_TAG }}
 
-      - name: Setup SSH Agent and Add Key
+      - name: Add SSH private key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/id_rsa
-
-      - name: Configure SSH
-        run: |
-          mkdir -p ~/.ssh
           ssh-keyscan -H ssh.ocooee.com >> ~/.ssh/known_hosts
-
-          {
-            echo "Host ocooee-tunnel"
-            echo "    HostName ssh.ocooee.com"
-            echo "    User ahsaniqbal"
-            echo "    IdentityFile ~/.ssh/id_rsa"
-            echo "    StrictHostKeyChecking no"
-            echo "    UserKnownHostsFile=/dev/null"
-            echo "    LogLevel ERROR"
-          } >> ~/.ssh/config
-
-          chmod 600 ~/.ssh/config
-
-      - name: Run run.sh on DigitalOcean server via tunnel
+      - name: SSH into server
         run: |
-          ssh ocooee-tunnel "cd /tmp && chmod +x run.sh && ./run.sh"
-          rm -f ~/.ssh/id_rsa
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ahsaniqbal@ssh.ocooee.com 'echo Connected!'
+
