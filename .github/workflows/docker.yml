@@ -50,11 +50,19 @@ jobs:
             ProxyCommand cloudflared access ssh --hostname %h
             IdentityFile ~/.ssh/ahsaniqbal_id_rsa" >> ~/.ssh/config
 
-      - name: Run SSH command
+      - name: SSH into server through cloudflared
         run: |
-          ssh ssh.ocooee.com "echo 'Hello from GitHub!'"
+          ssh -o StrictHostKeyChecking=no ssh.ocooee.com "echo 'Hello from GitHub!'"
         env:
           CLOUDFLARED_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+
+
+
+      # - name: Run SSH command
+      #   run: |
+      #     ssh ssh.ocooee.com "echo 'Hello from GitHub!'"
+      #   env:
+      #     CLOUDFLARED_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
 
       
       
