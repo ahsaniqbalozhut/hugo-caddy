@@ -38,9 +38,9 @@ jobs:
       - name: Setup SSH Agent and Add Key
         run: |
           mkdir -p ~/.ssh
-          eval "$(ssh-agent -s)"
-          echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/id_rsa
 
       - name: Configure SSH
@@ -48,16 +48,19 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ssh.ocooee.com >> ~/.ssh/known_hosts
 
-          echo "Host ocooee-tunnel" >> ~/.ssh/config
-          echo "    HostName ssh.ocooee.com" >> ~/.ssh/config
-          echo "    User ahsaniqbal" >> ~/.ssh/config
-          echo "    IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
-          echo "    StrictHostKeyChecking no" >> ~/.ssh/config
-          echo "    UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-          echo "    LogLevel ERROR" >> ~/.ssh/config
+          {
+            echo "Host ocooee-tunnel"
+            echo "    HostName ssh.ocooee.com"
+            echo "    User ahsaniqbal"
+            echo "    IdentityFile ~/.ssh/id_rsa"
+            echo "    StrictHostKeyChecking no"
+            echo "    UserKnownHostsFile=/dev/null"
+            echo "    LogLevel ERROR"
+          } >> ~/.ssh/config
 
           chmod 600 ~/.ssh/config
 
       - name: Run run.sh on DigitalOcean server via tunnel
         run: |
           ssh ocooee-tunnel "cd /tmp && chmod +x run.sh && ./run.sh"
+          rm -f ~/.ssh/id_rsa
