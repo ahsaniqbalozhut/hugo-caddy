@@ -51,7 +51,7 @@ jobs:
 
       - name: SSH into server via cloudflared
         run: |
-          cloudflared access ssh --hostname ssh.ocooee.com
+          cloudflared access ssh --hostname ssh.ocooee.com --command 'touch ~/ci_test_success.txt'
 
 
 
