@@ -35,26 +35,26 @@ jobs:
       #       ${{ env.IMAGE_NAME }}:latest
       #       ${{ env.IMAGE_NAME }}:${{ env.BRANCH_TAG }}
 
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DIGITALOCEAN_SSH_KEY }}" > ~/.ssh/ahsaniqbal_id_rsa
+          chmod 600 ~/.ssh/ahsaniqbal_id_rsa
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/ahsaniqbal_id_rsa
 
       - name: Install cloudflared
         run: |
-          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o cloudflared
-          chmod +x cloudflared
-          sudo mv cloudflared /usr/local/bin/
+          wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+          sudo mv cloudflared-linux-amd64 /usr/local/bin/cloudflared
+          sudo chmod +x /usr/local/bin/cloudflared
 
-      - name: Add SSH config with ProxyCommand
+      - name: SSH into server via cloudflared
         run: |
-          mkdir -p ~/.ssh
-          echo "Host ssh.ocooee.com
-            User ahsaniqbal
-            ProxyCommand cloudflared access ssh --hostname %h
-            IdentityFile ~/.ssh/ahsaniqbal_id_rsa" >> ~/.ssh/config
+          cloudflared access ssh --hostname ssh.ocooee.com
 
-      - name: SSH into server through cloudflared
-        run: |
-          ssh -o StrictHostKeyChecking=no ssh.ocooee.com "echo 'Hello from GitHub!'"
-        env:
-          CLOUDFLARED_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+
+
 
 
 
@@ -65,15 +65,5 @@ jobs:
       #     CLOUDFLARED_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
 
       
-      
-      # - name: Remote SSH Command
-      #   uses: appleboy/ssh-action@v1.0.3
-      #   with:
-      #     host: ssh.ocooee.com
-      #     username: ahsaniqbal
-      #     key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
-      #     script: |
-      #       echo "Deploying something..."
-      #     ssh_options: "-4" # ✅ Forces IPv4 usage
 
 
