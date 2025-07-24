@@ -4,7 +4,7 @@ date: 2025-07-19
 draft: false
 ---
 
-# **Supreme Dental Clinics – Discovery & Opportunity Assessment Report**
+# **AHSAN IQBAL - Supreme Dental Clinics – Discovery & Opportunity Assessment Report**
 
 **Prepared by:** King Ting – IT & Operations Consultant
 **Date:** 12 May 2025
